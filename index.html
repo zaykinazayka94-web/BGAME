@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Угадай фильм по эмодзи</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="card" id="gameCard">
+        <header class="card__header">
+          <p class="badge" id="levelBadge">Уровень 1 / 10</p>
+          <h1>Угадай фильм по эмодзи</h1>
+          <p class="subtitle">
+            Расшифруй набор эмодзи и введи название фильма.
+          </p>
+        </header>
+
+        <div class="progress-wrap" aria-label="Прогресс игры">
+          <div class="progress-bar">
+            <div class="progress-bar__fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="emoji-box" id="emojiPuzzle" aria-live="polite"></div>
+
+        <form id="answerForm" class="answer-form" autocomplete="off">
+          <label for="answerInput" class="label">Твой ответ</label>
+          <input
+            id="answerInput"
+            type="text"
+            placeholder="Например: Титаник"
+            maxlength="60"
+            required
+          />
+          <div class="actions">
+            <button type="submit" class="btn btn--primary">Проверить</button>
+            <button type="button" id="skipBtn" class="btn btn--ghost">
+              Пропустить
+            </button>
+          </div>
+        </form>
+
+        <p class="feedback" id="feedback" aria-live="assertive"></p>
+      </section>
+
+      <section class="card result hidden" id="resultCard">
+        <h2>Игра завершена!</h2>
+        <p class="result__score" id="resultScore"></p>
+        <p class="result__text" id="resultText"></p>
+        <button id="restartBtn" class="btn btn--primary">Играть снова</button>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
